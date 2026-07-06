@@ -41,6 +41,11 @@
     .card-id { display: block; margin-bottom: 42px; color: var(--muted); font-size: 9px; letter-spacing: .18em; }
     .card h3 { margin: 0 0 12px; font-size: 22px; letter-spacing: -.04em; }
     .card p { max-width: 420px; margin: 0; color: #555; font-size: 11px; line-height: 1.65; }
+    .detail-list { display: grid; grid-template-columns: auto 1fr; gap: 8px 14px; margin: 0; font-size: 11px; line-height: 1.5; }
+    .detail-list dt { color: var(--muted); }
+    .detail-list dd { margin: 0; }
+    .social-links { display: grid; gap: 8px; }
+    .social-links a, .social-links span { width: fit-content; border-bottom: 1px solid var(--ink); color: var(--ink); }
     .sidebar { min-width: 0; }
     .side-block { padding: 26px; border-bottom: 1px solid var(--ink); }
     .side-block h2 { margin: 0 0 24px; font-size: 10px; letter-spacing: .18em; }
@@ -112,16 +117,16 @@
         <section class="hero" id="overview">
           <p class="eyebrow">PERSONAL INFORMATION HUB / CLOUDFLARE PAGES</p>
           <h1>penginkun<br>index</h1>
-          <p class="hero-copy">プロフィール、制作物、ノート、リンクを一つに集約するための情報ハブ。現在は構造と表示システムを構築中です。</p>
+          <p class="hero-copy">Penginkun.netへようこそ、このサイトから様々な情報へ飛べます</p>
           <div class="geometry" aria-hidden="true"><i class="outline"></i><i class="solid"></i><i class="triangle"></i></div>
         </section>
         <section id="projects">
           <div class="section-head"><h2>CONTENT MODULES</h2><span>04 BLOCKS</span></div>
           <div class="cards">
-            <article class="card"><span class="card-id">01 / PROFILE</span><h3>About</h3><p>経歴、活動領域、関心分野を整理するプロフィール枠。</p></article>
-            <article class="card"><span class="card-id">02 / WORK</span><h3>Projects</h3><p>制作物、開発中のプロジェクト、公開リンクをまとめる枠。</p></article>
-            <article class="card" id="notes"><span class="card-id">03 / LOG</span><h3>Notes</h3><p>更新履歴、短いメモ、技術的な記録を並べる枠。</p></article>
-            <article class="card" id="links"><span class="card-id">04 / NETWORK</span><h3>Links</h3><p>GitHub、SNS、関連サイトへの導線を管理する枠。</p></article>
+            <article class="card"><span class="card-id">01 / PROFILE</span><h3>About</h3><dl class="detail-list"><dt>経歴</dt><dd>秘匿</dd><dt>活動領域</dt><dd>AI、世界史、Minecraft等</dd><dt>これからやりたいこと</dt><dd>挑戦</dd></dl></article>
+            <article class="card"><span class="card-id">02 / WORK</span><h3>Projects</h3></article>
+            <article class="card" id="notes"><span class="card-id">03 / LOG</span><h3>Notes</h3><p>都度変更</p></article>
+            <article class="card" id="links"><span class="card-id">04 / NETWORK</span><h3>Links</h3><p class="social-links"><a href="https://x.com/Yutapenguin1" target="_blank" rel="noreferrer">X @Yutapenguin1</a><span>Discord ID @p2res</span></p></article>
           </div>
         </section>
       </main>

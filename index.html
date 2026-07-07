@@ -46,6 +46,11 @@
     .detail-list dd { margin: 0; }
     .social-links { display: grid; gap: 8px; }
     .social-links a, .social-links span { width: fit-content; border-bottom: 1px solid var(--ink); color: var(--ink); }
+    .blog-entry { display: flex; min-height: 230px; align-items: center; justify-content: space-between; padding: 28px 38px; border-top: 1px solid var(--ink); background: var(--paper); }
+    .blog-entry strong { font-size: clamp(58px, 7.8vw, 118px); line-height: .8; letter-spacing: -.08em; }
+    .blog-entry span { display: grid; width: clamp(54px, 6vw, 84px); aspect-ratio: 1; place-items: center; border: 1px solid var(--ink); font-size: clamp(24px, 3vw, 42px); }
+    .blog-entry:hover, .blog-entry:focus-visible { background: var(--ink); color: var(--paper); outline: none; }
+    .blog-entry:hover span, .blog-entry:focus-visible span { border-color: var(--paper); }
     .sidebar { min-width: 0; }
     .side-block { padding: 26px; border-bottom: 1px solid var(--ink); }
     .side-block h2 { margin: 0 0 24px; font-size: 10px; letter-spacing: .18em; }
@@ -66,7 +71,7 @@
     .outline { animation: shape-in .65s ease-out .32s 1 both; }
     .solid { animation: square-in .65s cubic-bezier(.2,.8,.2,1) .44s 1 both; }
     .triangle { animation: triangle-in .6s ease-out .56s 1 both; }
-    .section-head, .cards, .sidebar { animation: rise-in .6s ease-out .5s 1 both; }
+    .section-head, .cards, .sidebar, .blog-entry { animation: rise-in .6s ease-out .5s 1 both; }
     .footer { animation: fade-in .45s ease-out .72s 1 both; }
     @keyframes drop-in { from { opacity: 0; transform: translateY(-18px); } to { opacity: 1; transform: translateY(0); } }
     @keyframes fade-in { from { opacity: 0; } to { opacity: 1; } }
@@ -99,6 +104,8 @@
       .cards, .sidebar { grid-template-columns: 1fr; }
       .card, .card:nth-child(even), .side-block, .side-block:nth-child(even) { border-right: 0; }
       .card { min-height: 165px; }
+      .blog-entry { min-height: 180px; padding: 24px 20px; }
+      .blog-entry strong { font-size: 16vw; }
       .footer { gap: 20px; padding: 14px 18px; line-height: 1.5; }
     }
   </style>
@@ -129,6 +136,7 @@
             <article class="card" id="links"><span class="card-id">04 / NETWORK</span><h3>Links</h3><p class="social-links"><a href="https://x.com/Yutapenguin1" target="_blank" rel="noreferrer">X @Yutapenguin1</a><span>Discord ID @p2res</span></p></article>
           </div>
         </section>
+        <a class="blog-entry" href="https://blog.penginkun.net" aria-label="PenginKun Blogへ移動"><strong>BLOG ENTER</strong><span aria-hidden="true">↗</span></a>
       </main>
       <aside class="sidebar">
         <section class="side-block"><h2>SYSTEM STATUS</h2><dl class="facts"><dt>PLATFORM</dt><dd>Cloudflare Pages</dd><dt>THEME</dt><dd>Monochrome</dd><dt>MODE</dt><dd>Static</dd><dt>VERSION</dt><dd>0.1</dd></dl></section>

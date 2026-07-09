@@ -28,12 +28,11 @@
     .hero-copy { position: relative; z-index: 2; max-width: 410px; margin: 42px 0 0; font-size: 13px; line-height: 1.85; }
     .scroll-note { position: absolute; z-index: 2; bottom: 34px; left: clamp(26px, 6vw, 78px); display: flex; gap: 10px; align-items: center; color: var(--muted); font-size: 9px; letter-spacing: .16em; }
     .scroll-note::before { width: 38px; height: 1px; background: currentColor; content: ""; }
-    .art { position: absolute; right: 6%; bottom: 9%; width: min(38vw, 430px); aspect-ratio: 1; }
+    .art { position: absolute; right: 6%; bottom: 9%; width: min(38vw, 430px); aspect-ratio: 1; overflow: hidden; }
     .shape { position: absolute; transition: transform .2s ease-out; }
-    .shape-outline { inset: 3% 10% 10% 0; border: 2px solid var(--ink); transform: translate(calc(var(--px) * -.025), calc(var(--py) * -.025)); }
-    .shape-solid { right: 0; bottom: 0; width: 54%; aspect-ratio: 1; background: var(--ink); transform: translate(calc(var(--px) * .035), calc(var(--py) * .035)); }
-    .shape-triangle { left: -9%; bottom: 18%; width: 45%; aspect-ratio: 1; background: var(--ink); clip-path: polygon(50% 0, 100% 100%, 0 100%); transform: translate(calc(var(--px) * -.055), calc(var(--py) * -.055)); }
-    .shape-dot { top: 3%; right: 3%; width: 9%; aspect-ratio: 1; border-radius: 50%; background: var(--ink); transform: translate(calc(var(--px) * .06), calc(var(--py) * .06)); }
+    .shape-outline { inset: 3% 10% 10% 0; border: 2px solid var(--ink); transform: translate(calc(var(--px) * -.01), calc(var(--py) * -.01)); }
+    .shape-solid { right: 0; bottom: 0; width: 54%; aspect-ratio: 1; background: var(--ink); transform: translate(calc(var(--px) * .012), calc(var(--py) * .012)); }
+    .shape-triangle { left: -9%; bottom: 18%; width: 45%; aspect-ratio: 1; background: var(--ink); clip-path: polygon(50% 0, 100% 100%, 0 100%); transform: translate(calc(var(--px) * -.018), calc(var(--py) * -.018)); }
     .content { padding: 0 clamp(18px, 3.3vw, 42px) 42px; }
     .section-label { display: flex; min-height: 82px; align-items: center; justify-content: space-between; border-top: 1px solid var(--ink); border-bottom: 1px solid var(--soft); }
     .section-label h2 { margin: 0; font-size: 11px; letter-spacing: .16em; }
@@ -62,9 +61,6 @@
     .links a::after { content: "↗"; transition: transform .25s ease; }
     .links a:hover::after { transform: translate(4px, -4px); }
     footer { display: flex; align-items: center; justify-content: space-between; min-height: 78px; padding: 0 34px; background: var(--ink); color: var(--paper); font-size: 9px; letter-spacing: .14em; }
-    .cursor { position: fixed; z-index: 100; top: 0; left: 0; width: 20px; height: 20px; border: 1px solid var(--ink); border-radius: 50%; pointer-events: none; opacity: 0; transform: translate(-50%, -50%); transition: width .2s ease, height .2s ease, background-color .2s ease, opacity .2s ease; mix-blend-mode: difference; }
-    .has-pointer .cursor { opacity: 1; }
-    .cursor.is-hovering { width: 48px; height: 48px; background: var(--paper); }
     .reveal { opacity: 0; transform: translateY(28px); }
     .reveal.is-visible { animation: reveal .65s cubic-bezier(.2,.8,.2,1) 0s 1 both; }
     .topbar, nav, .hero > :not(.art) { animation: load-up .65s cubic-bezier(.2,.8,.2,1) 0s 1 both; }
@@ -74,12 +70,10 @@
     @keyframes reveal { to { opacity: 1; transform: translateY(0); } }
     @media (max-width: 800px) { .hero { min-height: 650px; } .grid { grid-template-columns: 1fr; } .card { min-height: 190px; } .notes-links { grid-template-columns: 1fr; } .art { right: 7%; bottom: 10%; width: 60%; opacity: .95; } }
     @media (max-width: 540px) { .site { width: calc(100% - 20px); margin: 10px auto; } .topbar, footer { min-height: 64px; padding: 0 18px; } .status { font-size: 8px; } nav { gap: 15px; padding: 15px 18px; overflow-x: auto; } .hero { min-height: 600px; padding: 52px 22px; } h1 { font-size: 21vw; } .hero-copy { max-width: 75%; font-size: 12px; } .scroll-note { left: 22px; } .content { padding: 0 14px 14px; } .section-label { min-height: 68px; } .card { padding: 22px; } .blog-entry { min-height: 190px; padding: 24px; } .blog-entry strong { font-size: 16vw; } .panel { min-height: 150px; } footer { gap: 12px; font-size: 7px; } }
-    @media (pointer: fine) { body { cursor: none; } a, button { cursor: none; } }
-    @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; } .cursor { display: none; } }
+    @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; } }
   </style>
 </head>
 <body>
-  <div class="cursor" aria-hidden="true"></div>
   <main class="site">
     <header class="topbar"><p class="brand">PenginKun/</p><span class="status">INDEX ONLINE</span></header>
     <nav aria-label="Primary navigation"><a href="#about">ABOUT</a><a href="#projects">PROJECTS</a><a href="#notes">NOTES</a><a href="#links">LINKS</a></nav>
@@ -88,7 +82,7 @@
       <h1>penginkun<br>index</h1>
       <p class="hero-copy">Penginkun.netへようこそ。このサイトから、さまざまな情報へ飛べます。</p>
       <span class="scroll-note">SCROLL TO EXPLORE</span>
-      <div class="art" aria-hidden="true"><i class="shape shape-outline"></i><i class="shape shape-solid"></i><i class="shape shape-triangle"></i><i class="shape shape-dot"></i></div>
+      <div class="art" aria-hidden="true"><i class="shape shape-outline"></i><i class="shape shape-solid"></i><i class="shape shape-triangle"></i></div>
     </section>
     <section class="content">
       <div class="section-label reveal"><h2>SELECTED INFORMATION</h2><span>03 BLOCKS</span></div>
@@ -107,20 +101,13 @@
   </main>
   <script>
     const root = document.documentElement;
-    const cursor = document.querySelector('.cursor');
     const finePointer = window.matchMedia('(pointer: fine)');
     const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
 
     if (finePointer.matches && !reducedMotion.matches) {
-      document.body.classList.add('has-pointer');
       window.addEventListener('pointermove', (event) => {
         root.style.setProperty('--px', `${event.clientX - innerWidth / 2}px`);
         root.style.setProperty('--py', `${event.clientY - innerHeight / 2}px`);
-        cursor.style.transform = `translate(${event.clientX}px, ${event.clientY}px) translate(-50%, -50%)`;
-      });
-      document.querySelectorAll('a, [data-tilt]').forEach((item) => {
-        item.addEventListener('pointerenter', () => cursor.classList.add('is-hovering'));
-        item.addEventListener('pointerleave', () => cursor.classList.remove('is-hovering'));
       });
       document.querySelectorAll('[data-tilt]').forEach((card) => {
         card.addEventListener('pointermove', (event) => {
